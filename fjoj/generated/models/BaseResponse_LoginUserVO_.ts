@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { LoginUserVO } from './LoginUserVO';
+import type {LoginUserVO} from './LoginUserVO';
 
 export type BaseResponse_LoginUserVO_ = {
     code?: number;

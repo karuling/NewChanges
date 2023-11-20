@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { PostControllerService, PostQueryRequest } from "../../../generated";
+import { PostControllerService } from "../../../generated";
 import message from "@arco-design/web-vue/es/message";
 import { onMounted, ref } from "vue";
 import { post } from "@/views/post/postView.vue";

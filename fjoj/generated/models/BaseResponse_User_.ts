@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { User } from './User';
+import type {User} from './User';
 
 export type BaseResponse_User_ = {
     code?: number;

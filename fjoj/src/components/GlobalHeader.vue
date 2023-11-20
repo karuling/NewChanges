@@ -2,7 +2,7 @@
   <div>
     <a-row id="globalHeader" :wrap="false" align="center">
       <a-col flex="auto">
-        <div>
+        <div class="global">
           <a-menu
             :selected-keys="selectedKeys"
             mode="horizontal"
@@ -70,13 +70,12 @@
 <script lang="ts" setup>
 import { routes } from "@/router/routes";
 import { useRouter } from "vue-router";
-import { computed, onBeforeMount, onMounted, ref } from "vue";
-import { useStore } from "vuex";
+import { computed, ref } from "vue";
 import checkAccess from "@/access/checkAccess";
-import { PostControllerService, UserControllerService } from "../../generated";
+import { UserControllerService } from "../../generated";
 import message from "@arco-design/web-vue/es/message";
+import store from "@/store";
 
-const store = useStore();
 const router = useRouter();
 const selectedKeys = ref(["/"]);
 const loginOut = async () => {
@@ -122,8 +121,30 @@ const doMenuClick = (key: string) => {
 }
 
 .title {
-  color: #444;
+  color: #4dd0f8;
   margin-left: 16px;
+  image: linear-gradient(
+    160deg,
+    #0093e9 0%,
+    #80d0c7 33%,
+    #ffffff 66%,
+    #ffffff 100%
+  );
+  animation: repeatingColor 4s infinite;
+}
+@keyframes repeatingColor {
+  0% {
+    color: #0093e9;
+  }
+  33% {
+    color: #80d0c7;
+  }
+  66% {
+    color: #8ec5fc;
+  }
+  100% {
+    color: #e0c3fc;
+  }
 }
 
 .logo {
