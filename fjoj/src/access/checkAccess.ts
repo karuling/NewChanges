@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * 检查权限
  * @param loginUser 当前登录用户

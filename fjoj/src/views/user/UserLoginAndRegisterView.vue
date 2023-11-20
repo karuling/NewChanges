@@ -116,7 +116,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from "vue";
+import { onMounted, reactive } from "vue";
 import {
   UserControllerService,
   UserLoginRequest,
@@ -125,7 +125,6 @@ import {
 import message from "@arco-design/web-vue/es/message";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { onMounted } from "vue";
 /*
  动画
  */

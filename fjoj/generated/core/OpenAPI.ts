@@ -20,8 +20,8 @@ export type OpenAPIConfig = {
 };
 
 export const OpenAPI: OpenAPIConfig = {
-  BASE: "https://xiaotiaohou.cpolar.top", //发布环境
-  // BASE: "http://localhost:8121", //开发环境
+  // BASE: "https://xiaotiaohou.cpolar.top", //发布环境
+  BASE: "http://localhost:8121", //开发环境
   VERSION: "1.0",
   WITH_CREDENTIALS: true,
   CREDENTIALS: "include",

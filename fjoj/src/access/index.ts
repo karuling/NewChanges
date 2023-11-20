@@ -1,10 +1,13 @@
+// eslint-disable-next-line
+/* eslint-disable */
 import router from "@/router";
-import store from "@/store";
 import ACCESS_ENUM from "@/access/accessEnum";
 import checkAccess from "@/access/checkAccess";
+import store from "@/store";
 
 router.beforeEach(async (to, from, next) => {
   const loginUser = store.state.user.loginUser;
+
   //自动登录
   if (!loginUser || !loginUser.userRole) {
     await store.dispatch("user/getLoginUser");

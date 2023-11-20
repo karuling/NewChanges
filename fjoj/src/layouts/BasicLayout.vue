@@ -16,19 +16,17 @@
 
 <style scoped>
 #basicLayout {
-  max-width: 70%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 #basicLayout .header {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   box-shadow: #ccc7c7 1px 1px 5px;
 }
 
 #basicLayout .content {
-  background: linear-gradient(to right, #e7e7e7, #d2f4fa, #e7e7e7);
-  margin-bottom: 16px;
-  padding: 20px;
+  margin-bottom: 0;
 }
 
 #basicLayout .footer {

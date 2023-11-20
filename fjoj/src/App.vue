@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div id="app">
     <template v-if="route.path.startsWith('/user/')">
@@ -15,9 +16,8 @@
 </style>
 <script lang="ts" setup>
 import BasicLayout from "@/layouts/BasicLayout.vue";
-import { onMounted } from "vue";
+import { defineComponent, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import { defineComponent } from "vue";
 
 const route = useRoute();
 const doInit = () => {

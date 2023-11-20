@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { PostVO } from './PostVO';
+import type {PostVO} from './PostVO';
 
 export type BaseResponse_PostVO_ = {
     code?: number;
