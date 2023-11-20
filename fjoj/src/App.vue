@@ -4,8 +4,11 @@
     <template v-if="route.path.startsWith('/user/')">
       <router-view />
     </template>
-    <template v-else>
+    <template v-else-if="route.path === '/'">
       <BasicLayout />
+    </template>
+    <template v-else>
+      <BasicLayout2 />
     </template>
   </div>
 </template>
@@ -18,6 +21,7 @@
 import BasicLayout from "@/layouts/BasicLayout.vue";
 import { defineComponent, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import BasicLayout2 from "@/layouts/BasicLayout2.vue";
 
 const route = useRoute();
 const doInit = () => {
