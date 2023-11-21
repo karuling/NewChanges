@@ -10,12 +10,18 @@ import postView from "@/views/post/postView.vue";
 import postContentView from "@/views/post/postContentView.vue";
 import postAdd from "@/views/post/postAdd.vue";
 import UserEditView from "@/views/user/UserEditView.vue";
-import ContentView from "@/views/course/ContentView.vue";
+import ContentView from "@/views/Column/ContentView.vue";
 import ColumnView from "@/views/Column/ColumnView.vue";
 import CourseView from "@/views/course/CourseView.vue";
 import ChineseView from "@/views/course/ChineseView.vue";
 import MathView from "@/views/course/MathView.vue";
 import EnglishView from "@/views/course/EnglishView.vue";
+import PhysicsView from "@/views/course/PhysicsView.vue";
+import PoliticalView from "@/views/course/PoliticalView.vue";
+import HistoryView from "@/views/course/HistoryView.vue";
+import PrimaryView from "@/views/course/PrimaryView.vue";
+import MiddleView from "@/views/course/MiddleView.vue";
+import HighView from "@/views/course/HighView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -47,10 +53,38 @@ export const routes: Array<RouteRecordRaw> = [
         path: "/course/english",
         component: EnglishView,
       },
+      {
+        path: "/course/physics",
+        component: PhysicsView,
+      },
+      {
+        path: "/course/chemistry",
+        component: ChineseView,
+      },
+      {
+        path: "/course/political",
+        component: PoliticalView,
+      },
+      {
+        path: "/course/history",
+        component: HistoryView,
+      },
+      {
+        path: "/course/primary",
+        component: PrimaryView,
+      },
+      {
+        path: "/course/middle",
+        component: MiddleView,
+      },
+      {
+        path: "/course/high",
+        component: HighView,
+      },
     ],
   },
   {
-    path: "/chose",
+    path: "/",
     name: "首页",
     component: ContentView,
   },
@@ -60,7 +94,7 @@ export const routes: Array<RouteRecordRaw> = [
     component: postView,
   },
   {
-    path: "/",
+    path: "/column",
     name: "专栏",
     component: ColumnView,
   },

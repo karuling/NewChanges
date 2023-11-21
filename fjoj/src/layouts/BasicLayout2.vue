@@ -7,17 +7,6 @@
       <a-layout-content class="content">
         <router-view />
       </a-layout-content>
-      <a-layout-footer class="footer">
-        <div class="word">
-          <p>
-            <a href="https://www.baidu.com/">关于我们</a
-            >&nbsp;&nbsp;|&nbsp;&nbsp;
-            <a href="https://www.baidu.com/">加入我们</a
-            >&nbsp;&nbsp;|&nbsp;&nbsp;
-            <a href="https://www.baidu.com/">联系我们</a>
-          </p>
-        </div>
-      </a-layout-footer>
     </a-layout>
   </div>
 </template>

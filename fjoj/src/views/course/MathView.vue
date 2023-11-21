@@ -2,15 +2,14 @@
   <div class="common-layout">
     <el-container>
       <el-container>
-        <div id="menu">
-          <el-aside width="400px">
+        <div id="menu" style="height: 500px">
+          <el-aside width="400px" default-openeds="1">
             <el-col :span="12">
               <el-menu
                 active-text-color="#ffd04b"
                 background-color="#545c64"
                 class="el-menu-vertical-demo"
                 default-active="2"
-                default-openeds="['1,2']"
                 text-color="#fff"
                 @open="handleOpen"
                 @close="handleClose"
@@ -33,10 +32,18 @@
                   </el-menu-item>
                   <el-sub-menu index="1-4">
                     <template #title>其它</template>
-                    <el-menu-item index="1-4-1">物理</el-menu-item>
-                    <el-menu-item index="1-4-2">化学</el-menu-item>
-                    <el-menu-item index="1-4-3">政治</el-menu-item>
-                    <el-menu-item index="1-4-4">历史</el-menu-item>
+                    <el-menu-item index="1-4-1" @click="PhysicsClick"
+                      >物理
+                    </el-menu-item>
+                    <el-menu-item index="1-4-2" @click="ChemistryClick"
+                      >化学
+                    </el-menu-item>
+                    <el-menu-item index="1-4-3" @click="PoliticalClick"
+                      >政治
+                    </el-menu-item>
+                    <el-menu-item index="1-4-4" @click="HistoryClick"
+                      >历史
+                    </el-menu-item>
                   </el-sub-menu>
                 </el-sub-menu>
                 <el-sub-menu index="2">
@@ -46,14 +53,15 @@
                     </el-icon>
                     <span>年级</span>
                   </template>
-                  <el-menu-item index="2-1">四年级</el-menu-item>
-                  <el-menu-item index="2-2">五年级</el-menu-item>
-                  <el-menu-item index="2-3">六年级</el-menu-item>
-                  <el-sub-menu index="2-4">
-                    <template #title>高年级</template>
-                    <el-menu-item index="2-4-1">初中</el-menu-item>
-                    <el-menu-item index="2-4-2">高中</el-menu-item>
-                  </el-sub-menu>
+                  <el-menu-item index="2-1-1" @click="PrimaryClick"
+                    >小学
+                  </el-menu-item>
+                  <el-menu-item index="2-1-2" @click="MiddleClick"
+                    >初中
+                  </el-menu-item>
+                  <el-menu-item index="2-1-3" @click="HighClick"
+                    >高中
+                  </el-menu-item>
                 </el-sub-menu>
                 <el-menu-item index="3">
                   <el-icon>
@@ -61,87 +69,306 @@
                   </el-icon>
                   <span>设置</span>
                 </el-menu-item>
+                <el-menu-item index="4">
+                  <span></span>
+                </el-menu-item>
               </el-menu>
             </el-col>
           </el-aside>
         </div>
         <el-container>
-          <el-main>
+          <el-main class="main">
+            <el-header class="header">
+              <el-menu
+                :default-active="activeIndex"
+                mode="horizontal"
+                :ellipsis="false"
+                @select="handleSelect"
+              >
+                <el-menu-item index="1" class="mymenu">学习课程</el-menu-item>
+              </el-menu>
+              <a-space direction="vertical" size="large" class="search">
+                <a-input-search
+                  :style="{ width: '320px' }"
+                  placeholder="Please enter something"
+                  search-button
+                >
+                  <template #button-icon>
+                    <icon-search />
+                  </template>
+                  <template #button-default> Search</template>
+                </a-input-search>
+              </a-space>
+            </el-header>
+            <a-divider />
             <div class="allcontainer">
-              <div class="box-container1">
-                <div
-                  class="image-container1"
-                  @click="redirectToLink('https://www.4399.com/')"
-                  @mousemove="applyShadow"
-                  @mouseleave="removeShadow"
-                >
-                  <div class="image-wrapper">
-                    <a href="https://www.4399.com/"></a>
+              <a-card
+                hoverable
+                class="card1"
+                :style="{ width: '250px' }"
+                @click="redirectToLink('https://www.4399.com/')"
+                @mousemove="applyShadow"
+                @mouseleave="removeShadow"
+              >
+                <template #cover>
+                  <div
+                    :style="{
+                      height: '180px',
+                      overflow: 'hidden',
+                    }"
+                  >
+                    <img
+                      :style="{
+                        width: '100%',
+
+                        height: '100%',
+                      }"
+                      class="card1img"
+                      alt="dessert"
+                      src="https://i0.hippopx.com/photos/156/733/304/mathematics-count-science-study-1a26fe31e8d9371526e8990386a4fe8f.jpg"
+                    />
                   </div>
-                </div>
-              </div>
-              <div class="box-container2">
-                <div
-                  class="image-container2"
-                  @click="redirectToLink('https://www.4399.com/')"
-                  @mousemove="applyShadow"
-                  @mouseleave="removeShadow"
-                >
-                  <div class="image-wrapper">
-                    <div>图片2</div>
+                </template>
+                <a-card-meta title="Card Title">
+                  <template #description>
+                    Card content <br />
+                    Card content
+                  </template>
+                </a-card-meta>
+              </a-card>
+              <a-card
+                hoverable
+                :style="{ width: '250px' }"
+                class="card2"
+                @click="redirectToLink('https://www.4399.com/')"
+                @mousemove="applyShadow"
+                @mouseleave="removeShadow"
+              >
+                <template #cover>
+                  <div
+                    :style="{
+                      height: '180px',
+                      overflow: 'hidden',
+                    }"
+                  >
+                    <img
+                      :style="{
+                        width: '100%',
+                        height: '100%',
+                      }"
+                      class="card2img"
+                      alt="dessert"
+                      src="../../assets/Math/6.png"
+                    />
                   </div>
-                </div>
-              </div>
-              <div class="box-container3">
-                <div
-                  class="image-container3"
-                  @click="redirectToLink('https://www.4399.com/')"
-                  @mousemove="applyShadow"
-                  @mouseleave="removeShadow"
-                >
-                  <div class="image-wrapper">
-                    <div>图片3</div>
+                </template>
+                <a-card-meta title="Card Title">
+                  <template #description>
+                    Card content <br />
+                    Card content
+                  </template>
+                </a-card-meta>
+              </a-card>
+              <a-card
+                hoverable
+                :style="{ width: '250px' }"
+                class="card3"
+                @click="redirectToLink('https://www.4399.com/')"
+                @mousemove="applyShadow"
+                @mouseleave="removeShadow"
+              >
+                <template #cover>
+                  <div
+                    :style="{
+                      height: '180px',
+                      overflow: 'hidden',
+                    }"
+                  >
+                    <img
+                      :style="{
+                        width: '100%',
+                        height: '100%',
+                      }"
+                      class="card3img"
+                      alt="dessert"
+                      src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a20012a2d4d5b9db43dfc6a01fe508c0.png~tplv-uwbnlip3yd-webp.webp"
+                    />
                   </div>
-                </div>
-              </div>
+                </template>
+                <a-card-meta title="Card Title">
+                  <template #description>
+                    Card content <br />
+                    Card content
+                  </template>
+                </a-card-meta>
+              </a-card>
+              <a-card
+                hoverable
+                :style="{ width: '250px' }"
+                class="card4"
+                @click="redirectToLink('https://www.4399.com/')"
+                @mousemove="applyShadow"
+                @mouseleave="removeShadow"
+              >
+                <template #cover>
+                  <div
+                    :style="{
+                      height: '180px',
+                      overflow: 'hidden',
+                    }"
+                  >
+                    <img
+                      :style="{
+                        width: '100%',
+                        height: '100%',
+                      }"
+                      class="card4img"
+                      alt="dessert"
+                      src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a20012a2d4d5b9db43dfc6a01fe508c0.png~tplv-uwbnlip3yd-webp.webp"
+                    />
+                  </div>
+                </template>
+                <a-card-meta title="Card Title">
+                  <template #description>
+                    Card content <br />
+                    Card content
+                  </template>
+                </a-card-meta>
+              </a-card>
             </div>
             <div class="allcontainer">
-              <div class="box-container4">
-                <div
-                  class="image-container4"
-                  @click="redirectToLink('https://www.4399.com/')"
-                  @mousemove="applyShadow"
-                  @mouseleave="removeShadow"
-                >
-                  <div class="image-wrapper">
-                    <div>图片4</div>
+              <a-card
+                hoverable
+                :style="{ width: '250px' }"
+                class="card5"
+                @click="redirectToLink('https://www.4399.com/')"
+                @mousemove="applyShadow"
+                @mouseleave="removeShadow"
+              >
+                <template #cover>
+                  <div
+                    :style="{
+                      height: '180px',
+                      overflow: 'hidden',
+                    }"
+                  >
+                    <img
+                      :style="{
+                        width: '100%',
+                        height: '100%',
+                      }"
+                      class="card5img"
+                      alt="dessert"
+                      src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a20012a2d4d5b9db43dfc6a01fe508c0.png~tplv-uwbnlip3yd-webp.webp"
+                    />
                   </div>
-                </div>
-              </div>
-              <div class="box-container5">
-                <div
-                  class="image-container5"
-                  @click="redirectToLink('https://www.4399.com/')"
-                  @mousemove="applyShadow"
-                  @mouseleave="removeShadow"
-                >
-                  <div class="image-wrapper">
-                    <div>图片4</div>
+                </template>
+                <a-card-meta title="Card Title">
+                  <template #description>
+                    Card content <br />
+                    Card content
+                  </template>
+                </a-card-meta>
+              </a-card>
+              <a-card
+                hoverable
+                :style="{ width: '250px' }"
+                class="card6"
+                @click="redirectToLink('https://www.4399.com/')"
+                @mousemove="applyShadow"
+                @mouseleave="removeShadow"
+              >
+                <template #cover>
+                  <div
+                    :style="{
+                      height: '180px',
+                      overflow: 'hidden',
+                    }"
+                  >
+                    <img
+                      :style="{
+                        width: '100%',
+                        height: '100%',
+                      }"
+                      class="card6img"
+                      alt="dessert"
+                      src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a20012a2d4d5b9db43dfc6a01fe508c0.png~tplv-uwbnlip3yd-webp.webp"
+                    />
                   </div>
-                </div>
-              </div>
-              <div class="box-container6">
-                <div
-                  class="image-container6"
-                  @click="redirectToLink('https://www.4399.com/')"
-                  @mousemove="applyShadow"
-                  @mouseleave="removeShadow"
-                >
-                  <div class="image-wrapper">
-                    <div>图片4</div>
+                </template>
+                <a-card-meta title="Card Title">
+                  <template #description>
+                    Card content <br />
+                    Card content
+                  </template>
+                </a-card-meta>
+              </a-card>
+              <a-card
+                hoverable
+                :style="{ width: '250px' }"
+                class="card7"
+                @click="redirectToLink('https://www.4399.com/')"
+                @mousemove="applyShadow"
+                @mouseleave="removeShadow"
+              >
+                <template #cover>
+                  <div
+                    :style="{
+                      height: '180px',
+                      overflow: 'hidden',
+                    }"
+                  >
+                    <img
+                      :style="{
+                        width: '100%',
+                        height: '100%',
+                      }"
+                      class="card7img"
+                      alt="dessert"
+                      src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a20012a2d4d5b9db43dfc6a01fe508c0.png~tplv-uwbnlip3yd-webp.webp"
+                    />
                   </div>
-                </div>
-              </div>
+                </template>
+                <a-card-meta title="Card Title">
+                  <template #description>
+                    Card content <br />
+                    Card content
+                  </template>
+                </a-card-meta>
+              </a-card>
+              <a-card
+                hoverable
+                :style="{ width: '250px' }"
+                class="card8"
+                @click="redirectToLink('https://www.4399.com/')"
+                @mousemove="applyShadow"
+                @mouseleave="removeShadow"
+              >
+                <template #cover>
+                  <div
+                    :style="{
+                      height: '180px',
+                      overflow: 'hidden',
+                    }"
+                  >
+                    <img
+                      :style="{
+                        width: '100%',
+                        height: '100%',
+                      }"
+                      class="card8img"
+                      alt="dessert"
+                      src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a20012a2d4d5b9db43dfc6a01fe508c0.png~tplv-uwbnlip3yd-webp.webp"
+                    />
+                  </div>
+                </template>
+                <a-card-meta title="Card Title">
+                  <template #description>
+                    Card content <br />
+                    Card content
+                  </template>
+                </a-card-meta>
+              </a-card>
             </div>
           </el-main>
         </el-container>
@@ -153,19 +380,25 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Location, Menu as IconMenu, Setting } from "@element-plus/icons-vue";
-
-import { useRoute } from "vue-router";
-
-const router = useRoute();
+import PrimaryView from "@/views/course/PrimaryView.vue";
 
 export default defineComponent({
+  computed: {
+    PrimaryView() {
+      return PrimaryView;
+    },
+  },
   components: { Location, IconMenu, Setting },
   data() {
     return {
       imageSrc: "../../assets/tou1.jpg",
+      activeIndex: "1",
     };
   },
   methods: {
+    handleSelect(key: string, keyPath: string[]) {
+      console.log(key, keyPath);
+    },
     redirectToCourse(path: string) {
       this.$router.push({
         path: "/course" + path,
@@ -180,6 +413,27 @@ export default defineComponent({
     },
     EnglishClick() {
       this.redirectToCourse("/english");
+    },
+    PhysicsClick() {
+      this.redirectToCourse("/physics");
+    },
+    ChemistryClick() {
+      this.redirectToCourse("/chemistry");
+    },
+    PoliticalClick() {
+      this.redirectToCourse("/political");
+    },
+    HistoryClick() {
+      this.redirectToCourse("/history");
+    },
+    PrimaryClick() {
+      this.redirectToCourse("/primary");
+    },
+    MiddleClick() {
+      this.redirectToCourse("/middle");
+    },
+    HighClick() {
+      this.redirectToCourse("/high");
     },
     handleOpen(key: string, keyPath: string[]) {
       console.log(key, keyPath);
@@ -210,178 +464,128 @@ export default defineComponent({
 });
 </script>
 <style scoped>
+#menu {
+  max-width: 202px;
+  margin: 20px;
+
+  border-radius: 10px;
+}
+
+.main {
+  border: 2px solid white;
+  border-radius: 15px;
+}
+
 .header {
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100px;
-  background-color: #0093e9;
-  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
-  animation: repeatingColor 3s infinite;
-  font-size: 20px;
+  justify-content: flex-end;
+  border-bottom: 2px solid white;
+  border-radius: 12px;
+  padding: 0;
 }
 
-@keyframes repeatingColor {
-  0% {
-    color: red;
-  }
-  50% {
-    color: blue;
-  }
-  100% {
-    color: green;
-  }
+.mymenu {
+  display: flex;
+  position: relative;
+  right: 750px;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+.search {
+  position: relative;
 }
 
 .allcontainer {
   display: flex;
 }
 
-.box-container1 {
-  width: 280px;
-  height: 200px;
-  border: 2px solid #ccc;
-  display: flex;
+.card1 {
   justify-content: center;
   align-items: center;
   margin: 30px;
+  border: none;
 }
 
-.box-container2 {
-  width: 280px;
-  height: 200px;
-  border: 2px solid #ccc;
-  display: flex;
+.card2 {
   justify-content: center;
   align-items: center;
   margin: 30px;
+  border: none;
 }
 
-.box-container3 {
-  width: 280px;
-  height: 200px;
-  border: 2px solid #ccc;
-  display: flex;
+.card3 {
   justify-content: center;
   align-items: center;
   margin: 30px;
+  border: none;
 }
 
-.box-container4 {
-  width: 280px;
-  height: 200px;
-  border: 2px solid #ccc;
-  display: flex;
+.card4 {
   justify-content: center;
   align-items: center;
   margin: 30px;
+  border: none;
 }
 
-.box-container5 {
-  width: 280px;
-  height: 200px;
-  border: 2px solid #ccc;
-  display: flex;
+.card5 {
   justify-content: center;
   align-items: center;
   margin: 30px;
+  border: none;
 }
 
-.box-container6 {
-  width: 280px;
-  height: 200px;
-  border: 2px solid #ccc;
-  display: flex;
+.card6 {
   justify-content: center;
   align-items: center;
   margin: 30px;
+  border: none;
 }
 
-.image-container1 {
-  border: 2px solid;
-  border-radius: 12px;
-  width: 90%;
-  height: 90%;
+.card7 {
   justify-content: center;
   align-items: center;
-  display: flex;
-  background-image: url("../../assets/picture.jpg");
-  background-size: cover;
-  transition: box-shadow 0.5s;
+  margin: 30px;
+  border: none;
 }
 
-.image-container2 {
-  border: 2px solid;
-  border-radius: 12px;
-  width: 90%;
-  height: 90%;
+.card8 {
   justify-content: center;
   align-items: center;
-  display: flex;
-  background-image: url("../../assets/tou1.jpg");
-  background-size: cover;
-  transition: box-shadow 0.5s;
+  margin: 30px;
+  border: none;
 }
 
-.image-container3 {
-  border: 2px solid;
-  border-radius: 12px;
-  width: 90%;
-  height: 90%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  background-image: url("../../assets/tou1.jpg");
-  background-size: cover;
-  transition: box-shadow 0.5s;
+.card1img {
+  border-radius: 15px;
 }
 
-.image-container4 {
-  border: 2px solid;
-  border-radius: 12px;
-  width: 90%;
-  height: 90%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  background-image: url("../../assets/picture.jpg");
-  background-size: cover;
-  transition: box-shadow 0.5s;
+.card2img {
+  border-radius: 15px;
 }
 
-.image-container5 {
-  border: 2px solid;
-  border-radius: 12px;
-  width: 90%;
-  height: 90%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  background-image: url("../../assets/picture.jpg");
-  background-size: cover;
-  transition: box-shadow 0.5s;
+.card3img {
+  border-radius: 15px;
 }
 
-.image-container6 {
-  border: 2px solid;
-  border-radius: 12px;
-  width: 90%;
-  height: 90%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  background-image: url("../../assets/picture.jpg");
-  background-size: cover;
-  transition: box-shadow 0.5s;
+.card4img {
+  border-radius: 15px;
 }
 
-.image-wrapper {
-  max-width: 100%;
-  max-height: 100%;
+.card5img {
+  border-radius: 15px;
 }
 
-#menu {
-  max-width: 250px;
+.card6img {
+  border-radius: 15px;
+}
+
+.card7img {
+  border-radius: 15px;
+}
+
+.card8img {
+  border-radius: 15px;
 }
 </style>

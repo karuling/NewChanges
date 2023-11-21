@@ -14,4 +14,5 @@ createApp(App)
   .use(ArcoVue)
   .use(store)
   .use(router)
+
   .mount("#app");

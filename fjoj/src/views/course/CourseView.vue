@@ -32,10 +32,18 @@
                   </el-menu-item>
                   <el-sub-menu index="1-4">
                     <template #title>其它</template>
-                    <el-menu-item index="1-4-1">物理</el-menu-item>
-                    <el-menu-item index="1-4-2">化学</el-menu-item>
-                    <el-menu-item index="1-4-3">政治</el-menu-item>
-                    <el-menu-item index="1-4-4">历史</el-menu-item>
+                    <el-menu-item index="1-4-1" @click="PhysicsClick"
+                      >物理
+                    </el-menu-item>
+                    <el-menu-item index="1-4-2" @click="ChemistryClick"
+                      >化学
+                    </el-menu-item>
+                    <el-menu-item index="1-4-3" @click="PoliticalClick"
+                      >政治
+                    </el-menu-item>
+                    <el-menu-item index="1-4-4" @click="HistoryClick"
+                      >历史
+                    </el-menu-item>
                   </el-sub-menu>
                 </el-sub-menu>
                 <el-sub-menu index="2">
@@ -45,14 +53,15 @@
                     </el-icon>
                     <span>年级</span>
                   </template>
-                  <el-menu-item index="2-1">四年级</el-menu-item>
-                  <el-menu-item index="2-2">五年级</el-menu-item>
-                  <el-menu-item index="2-3">六年级</el-menu-item>
-                  <el-sub-menu index="2-4'">
-                    <template #title>高年级</template>
-                    <el-menu-item index="2-4-1">初中</el-menu-item>
-                    <el-menu-item index="2-4-2">高中</el-menu-item>
-                  </el-sub-menu>
+                  <el-menu-item index="2-1-1" @click="PrimaryClick"
+                    >小学
+                  </el-menu-item>
+                  <el-menu-item index="2-1-2" @click="MiddleClick"
+                    >初中
+                  </el-menu-item>
+                  <el-menu-item index="2-1-3" @click="HighClick"
+                    >高中
+                  </el-menu-item>
                 </el-sub-menu>
                 <el-menu-item index="3">
                   <el-icon>
@@ -61,15 +70,6 @@
                   <span>设置</span>
                 </el-menu-item>
                 <el-menu-item index="4">
-                  <span>笔记</span>
-                </el-menu-item>
-                <el-menu-item index="5">
-                  <span></span>
-                </el-menu-item>
-                <el-menu-item index="6">
-                  <span></span>
-                </el-menu-item>
-                <el-menu-item index="7">
                   <span></span>
                 </el-menu-item>
               </el-menu>
@@ -85,7 +85,7 @@
                 :ellipsis="false"
                 @select="handleSelect"
               >
-                <el-menu-item index="1" class="mymenu">我学的课</el-menu-item>
+                <el-menu-item index="1" class="mymenu">学习课程</el-menu-item>
               </el-menu>
               <a-space direction="vertical" size="large" class="search">
                 <a-input-search
@@ -125,7 +125,7 @@
                       }"
                       class="card1img"
                       alt="dessert"
-                      src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a20012a2d4d5b9db43dfc6a01fe508c0.png~tplv-uwbnlip3yd-webp.webp"
+                      src="https://i0.hippopx.com/photos/156/733/304/mathematics-count-science-study-1a26fe31e8d9371526e8990386a4fe8f.jpg"
                     />
                   </div>
                 </template>
@@ -158,7 +158,7 @@
                       }"
                       class="card2img"
                       alt="dessert"
-                      src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a20012a2d4d5b9db43dfc6a01fe508c0.png~tplv-uwbnlip3yd-webp.webp"
+                      src="../../assets/Math/6.png"
                     />
                   </div>
                 </template>
@@ -380,8 +380,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Location, Menu as IconMenu, Setting } from "@element-plus/icons-vue";
+import PrimaryView from "@/views/course/PrimaryView.vue";
 
 export default defineComponent({
+  computed: {
+    PrimaryView() {
+      return PrimaryView;
+    },
+  },
   components: { Location, IconMenu, Setting },
   data() {
     return {
@@ -407,6 +413,27 @@ export default defineComponent({
     },
     EnglishClick() {
       this.redirectToCourse("/english");
+    },
+    PhysicsClick() {
+      this.redirectToCourse("/physics");
+    },
+    ChemistryClick() {
+      this.redirectToCourse("/chemistry");
+    },
+    PoliticalClick() {
+      this.redirectToCourse("/political");
+    },
+    HistoryClick() {
+      this.redirectToCourse("/history");
+    },
+    PrimaryClick() {
+      this.redirectToCourse("/primary");
+    },
+    MiddleClick() {
+      this.redirectToCourse("/middle");
+    },
+    HighClick() {
+      this.redirectToCourse("/high");
     },
     handleOpen(key: string, keyPath: string[]) {
       console.log(key, keyPath);
@@ -560,10 +587,5 @@ export default defineComponent({
 
 .card8img {
   border-radius: 15px;
-}
-
-.image-wrapper {
-  max-width: 100%;
-  max-height: 100%;
 }
 </style>
