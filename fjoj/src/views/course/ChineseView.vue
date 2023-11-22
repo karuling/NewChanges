@@ -4,7 +4,7 @@
       <el-container>
         <el-container>
           <el-main class="main">
-            <div class="allcontainer">
+            <div class="allContainer">
               <a-card
                   v-for="item in card_data"
                   :style="{ width: '250px' }"
@@ -33,10 +33,10 @@
                     />
                   </div>
                 </template>
-                <a-card-meta title="Card Title">
+                <a-card-meta :title=item.title>
                   <template #description>
-                    Card content <br/>
-                    Card content
+                    {{item.maker}}&nbsp;&nbsp;
+                    {{item.time}}
                   </template>
                 </a-card-meta>
               </a-card>
@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {defineComponent} from "vue";
 import {Location, Menu as IconMenu, Setting} from "@element-plus/icons-vue";
 import PrimaryView from "@/views/course/PrimaryView.vue";
 
@@ -62,16 +62,28 @@ export default defineComponent({
   components: {Location, IconMenu, Setting},
   data() {
     return {
-      imageSrc: "../../assets/tou1.jpg",
       activeIndex: "1",
       card_data: [
         {
           url: "https://www.4399.com/",
-          src: require("../../assets/Chinese/1.png")
+          src: require("../../assets/Chinese/1.png"),
+          title:"语文课",
+          maker:"蒋帅博",
+          time:"一小时前"
         },
         {
           url: "https://www.4399.com/",
-          src: require("../../assets/Chinese/1.png")
+          src: require("../../assets/Chinese/1.png"),
+          title:"语文课",
+          maker:"蒋帅博",
+          time:"一小时前"
+        },
+        {
+          url: "https://www.4399.com/",
+          src: require("../../assets/Chinese/2.png"),
+          title:"语文课",
+          maker:"蒋帅博",
+          time:"一小时前"
         }
       ]
     };
@@ -106,7 +118,7 @@ export default defineComponent({
   border-radius: 15px;
 }
 
-.allcontainer {
+.allContainer {
   display: flex;
 }
 

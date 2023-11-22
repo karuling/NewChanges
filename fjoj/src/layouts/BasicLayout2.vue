@@ -26,32 +26,8 @@
   margin: 0;
 }
 
-#basicLayout .footer {
-  padding: 16px;
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  background-image: url("../assets/background3.png");
-}
 a {
   color: white;
-}
-.word {
-  color: white;
-  animation: blink 4s linear infinite;
-}
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 </style>
 <script>

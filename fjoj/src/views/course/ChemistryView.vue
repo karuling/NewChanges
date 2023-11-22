@@ -4,7 +4,7 @@
       <el-container>
         <el-container>
           <el-main class="main">
-            <div class="allcontainer">
+            <div class="allContainer">
               <a-card
                   v-for="item in card_data"
                   :style="{ width: '250px' }"
@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {defineComponent } from "vue";
 import {Location, Menu as IconMenu, Setting} from "@element-plus/icons-vue";
 import PrimaryView from "@/views/course/PrimaryView.vue";
 
@@ -106,7 +106,7 @@ export default defineComponent({
   border-radius: 15px;
 }
 
-.allcontainer {
+.allContainer {
   display: flex;
 }
 

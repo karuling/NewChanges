@@ -1,6 +1,5 @@
 /* eslint-disable */
 import {RouteRecordRaw} from "vue-router";
-import HomeView from "@/views/HomeView.vue";
 import AdminView from "@/views/AdminView.vue";
 import NoAuthView from "@/views/NoAuthView.vue";
 import accessEnum from "@/access/accessEnum";
@@ -11,7 +10,6 @@ import postContentView from "@/views/post/postContentView.vue";
 import postAdd from "@/views/post/postAdd.vue";
 import UserEditView from "@/views/user/UserEditView.vue";
 import ContentView from "@/views/Column/ContentView.vue";
-import ColumnView from "@/views/Column/ColumnView.vue";
 import ChineseView from "@/views/course/ChineseView.vue";
 import MathView from "@/views/course/MathView.vue";
 import EnglishView from "@/views/course/EnglishView.vue";
@@ -50,21 +48,8 @@ export const routes: Array<RouteRecordRaw> = [
         component: postView,
     },
     {
-        path: "/column",
-        name: "专栏",
-        component: ColumnView,
-    },
-    {
         path: "/",
         redirect: "/chose",
-    },
-    {
-        path: "/hide",
-        name: "隐藏页面",
-        component: HomeView,
-        meta: {
-            hideInMenu: true,
-        },
     },
     {
         path: "/noAuth",

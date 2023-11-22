@@ -25,16 +25,15 @@
 <style scoped>
 #basicLayout {
   max-width: 100%;
-  margin: 0 auto;
 }
 
 #basicLayout .header {
-  margin-bottom: 10px;
-  box-shadow: #ccc7c7 1px 1px 5px;
 }
 
 #basicLayout .content {
   margin: 0;
+  background-image: url("../assets/backgroundcontent1.jpg") !important;
+  background-size: cover;
 }
 
 #basicLayout .footer {
@@ -44,25 +43,16 @@
   left: 0;
   right: 0;
   text-align: center;
-  background-image: url("../assets/background3.png");
+  background-image: url("../assets/backgroundfooter1.png") !important;
+  background-size: 100% 100%;
 }
+
 a {
   color: white;
 }
+
 .word {
   color: white;
-  animation: blink 4s linear infinite;
-}
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 </style>
 <script>

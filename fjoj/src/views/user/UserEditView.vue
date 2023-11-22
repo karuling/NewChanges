@@ -1,15 +1,27 @@
 <template>
-  <el-form ref="ruleForm" :model="UserEdit" label-width="100px">
-    <el-form-item label="昵称" prop="userName">
-      <el-input v-model="UserEdit.userName"></el-input>
-    </el-form-item>
-    <el-form-item label="简介" prop="userProfile">
-      <el-input v-model="UserEdit.userProfile" type="textarea"></el-input>
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="handleSubmitEdit()">更新</el-button>
-    </el-form-item>
-  </el-form>
+  <div id="useredit">
+    <el-form ref="ruleForm" :model="UserEdit" class="Editform">
+      <el-form-item
+        label="新的昵称"
+        prop="userName"
+        class="username"
+        size="large"
+      >
+        <el-input v-model="UserEdit.userName"></el-input>
+      </el-form-item>
+      <el-form-item label="个人简介" prop="userProfile" class="userprofile">
+        <el-input v-model="UserEdit.userProfile" type="textarea"></el-input>
+      </el-form-item>
+      <el-form-item class="update">
+        <el-button
+          type="primary"
+          @click="handleSubmitEdit()"
+          style="width: 100px"
+          >提交修改
+        </el-button>
+      </el-form-item>
+    </el-form>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -39,4 +51,32 @@ const handleSubmitEdit = async () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#useredit {
+  justify-content: center;
+  display: flex;
+  background-image: url("../../assets/usereditbackground.jpg");
+}
+
+.Editform {
+  display: flex;
+  align-items: center;
+  height: 85vh;
+}
+
+.username {
+  position: relative;
+  top: -10px;
+}
+
+.userprofile {
+  position: relative;
+  top: 10px;
+}
+
+.update {
+  position: relative;
+  top: 20px;
+  right: -30px;
+}
+</style>

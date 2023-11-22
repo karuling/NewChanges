@@ -44,11 +44,6 @@
   text-align: center;
 }
 
-.time {
-  font-size: 12px;
-  color: #999;
-}
-
 .bottom {
   margin-top: 13px;
   line-height: 12px;
