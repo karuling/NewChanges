@@ -8,6 +8,5 @@
 #userLayout {
   text-align: center;
 }
-
 </style>
 <script></script>

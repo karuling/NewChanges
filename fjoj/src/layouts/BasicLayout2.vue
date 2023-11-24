@@ -18,7 +18,6 @@
 }
 
 #basicLayout .header {
-  margin-bottom: 10px;
   box-shadow: #ccc7c7 1px 1px 5px;
 }
 

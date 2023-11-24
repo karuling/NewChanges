@@ -2,19 +2,13 @@
   <div class="ContentContainer">
     <div>
       <div id="text">
-        <p class="contenttitle">
-          智享教育
-        </p>
+        <p class="contenttitle">智享教育</p>
         <br />
         <p class="contenttitle1">不积跬步，无以至千里；不积小流，无以成江海</p>
       </div>
       <div id="button">
-        <button class="GreenButton">
-          直播
-        </button>
-        <button class="BlueButton2" @click="course">
-          课程
-        </button>
+        <button class="GreenButton">直播</button>
+        <button class="BlueButton2" @click="course">课程</button>
       </div>
     </div>
   </div>
@@ -22,7 +16,6 @@
 
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
-import { ref } from "vue";
 
 const router = useRouter();
 const course = async () => {
@@ -68,39 +61,38 @@ const course = async () => {
 }
 
 .GreenButton {
-  background-color: #87acc0;
+  background-color: #ffffff;
   border-radius: 5px;
   padding: 12px 50px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   margin: 10px 5px;
-  color: white;
+  color: black;
   position: relative;
 }
 
 .GreenButton:hover {
-  background-color: black;
+  background-color: #04befe;
   border: 2px solid #4caf50;
   color: white;
 }
 
 .BlueButton2 {
-  background-color: #87acc0;
+  background-color: #ffffff;
   border-radius: 5px;
   padding: 12px 50px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   margin: 10px 5px;
-  color: white;
+  color: black;
   position: relative;
 }
 
 .BlueButton2:hover {
-  background-color: black;
+  background-color: #04befe;
   border: 2px solid #008cba;
   color: white;
 }
-
 </style>

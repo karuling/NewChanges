@@ -14,7 +14,11 @@
               disabled
             >
               <div class="title-bar">
-                <img alt="logo(未定)" class="logo" src="../assets/logo.png" />
+                <img
+                  alt="logo(未定)"
+                  class="logo"
+                  src="../assets/background/logo.png"
+                />
                 <div class="title">智享</div>
               </div>
             </a-menu-item>
@@ -46,6 +50,17 @@
               <a-doption
                 v-if="store.state.user?.loginUser?.userName != '未登录'"
               >
+                <a-button>
+                  <router-link
+                    :to="'/personcenter/' + userId"
+                    style="text-decoration: none"
+                    >个人中心
+                  </router-link>
+                </a-button>
+              </a-doption>
+              <a-doption
+                v-if="store.state.user?.loginUser?.userName != '未登录'"
+              >
                 <a-button href="/user/login">更换账号</a-button>
               </a-doption>
               <a-doption
@@ -70,7 +85,7 @@
 <script lang="ts" setup>
 import { routes } from "@/router/routes";
 import { useRouter } from "vue-router";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref, Ref } from "vue";
 import checkAccess from "@/access/checkAccess";
 import { UserControllerService } from "../../generated";
 import message from "@arco-design/web-vue/es/message";
@@ -113,6 +128,19 @@ const doMenuClick = (key: string) => {
     path: key,
   });
 };
+onMounted(async () => {
+  userId = (await getUserId()) as Ref<number>;
+  console.log(userId);
+});
+let userId = ref(1);
+const getUserId = async () => {
+  const res = await UserControllerService.getLoginUserUsingGet();
+  if (res.code === 0) {
+    return ref(res.data?.id);
+  } else {
+    return 0;
+  }
+};
 </script>
 <style>
 .title-bar {
@@ -132,6 +160,7 @@ const doMenuClick = (key: string) => {
   );
   animation: repeatingColor 4s infinite;
 }
+
 @keyframes repeatingColor {
   0% {
     color: #0093e9;

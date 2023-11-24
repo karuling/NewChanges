@@ -100,7 +100,7 @@
             <p>输入您的信息成为我们的客户</p>
             <button id="sign-up-btn" class="btn transparent">注 册</button>
           </div>
-          <img alt="" class="image" src="../../assets/log.svg" />
+          <img alt="" class="image" src="../../assets/background/log.svg" />
         </div>
         <div class="panel right-panel">
           <div class="content">
@@ -108,7 +108,11 @@
             <p>请登录以享受我们更多的服务</p>
             <button id="sign-in-btn" class="btn transparent">登 录</button>
           </div>
-          <img alt="" class="image" src="../../assets/register.svg" />
+          <img
+            alt=""
+            class="image"
+            src="../../assets/background/register.svg"
+          />
         </div>
       </div>
     </div>

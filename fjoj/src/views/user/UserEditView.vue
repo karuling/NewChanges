@@ -2,21 +2,21 @@
   <div id="useredit">
     <el-form ref="ruleForm" :model="UserEdit" class="Editform">
       <el-form-item
+        class="username"
         label="新的昵称"
         prop="userName"
-        class="username"
         size="large"
       >
         <el-input v-model="UserEdit.userName"></el-input>
       </el-form-item>
-      <el-form-item label="个人简介" prop="userProfile" class="userprofile">
+      <el-form-item class="userprofile" label="个人简介" prop="userProfile">
         <el-input v-model="UserEdit.userProfile" type="textarea"></el-input>
       </el-form-item>
       <el-form-item class="update">
         <el-button
+          style="width: 100px"
           type="primary"
           @click="handleSubmitEdit()"
-          style="width: 100px"
           >提交修改
         </el-button>
       </el-form-item>
@@ -36,7 +36,6 @@ const UserEdit = reactive({
   userName: "",
   userProfile: "",
 } as UserUpdateMyRequest);
-
 const handleSubmitEdit = async () => {
   const res = await UserControllerService.updateMyUserUsingPost(UserEdit);
   if (res.code === 0) {
@@ -55,7 +54,7 @@ const handleSubmitEdit = async () => {
 #useredit {
   justify-content: center;
   display: flex;
-  background-image: url("../../assets/usereditbackground.jpg");
+  background-image: url("../../assets/background/usereditbackground.jpg");
 }
 
 .Editform {

@@ -31,8 +31,7 @@
 }
 
 #basicLayout .content {
-  margin: 0;
-  background-image: url("../assets/backgroundcontent1.jpg") !important;
+  background-image: url("../assets/background/backgroundcontent1.jpg") !important;
   background-size: cover;
 }
 
@@ -43,7 +42,7 @@
   left: 0;
   right: 0;
   text-align: center;
-  background-image: url("../assets/backgroundfooter1.png") !important;
+  background-image: url("../assets/background/backgroundfooter1.png") !important;
   background-size: 100% 100%;
 }
 
