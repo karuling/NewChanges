@@ -196,6 +196,7 @@ export default defineComponent({
   align-items: center;
   margin: 30px;
   border: none;
+  cursor: pointer;
 }
 
 .cardImg {

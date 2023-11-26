@@ -157,11 +157,12 @@ const getUser = async () => {
 
 .PersonalCentercontent {
   width: 789px;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   position: relative;
   height: 80vh;
   border: 1px solid #e1e2e5;
+  box-sizing: border-box;
 }
 
 .box1 {
@@ -304,8 +305,6 @@ const getUser = async () => {
 #h-sign {
   background: transparent;
   border-radius: 4px;
-  border: none;
-  box-shadow: none;
   font-size: 12px;
   font-family: Microsoft Yahei, serif;
   height: 26px;
@@ -313,10 +312,13 @@ const getUser = async () => {
   position: relative;
   left: 16px;
   top: 20px;
+  transition: background-color 0.3s;
+  border: none;
 }
 
 #h-sign:hover {
-  background-color: white;
+  background-color: hsla(0, 0%, 70%, 0.1);
+  border: 1px solid #6d757a;
 }
 
 .menu {

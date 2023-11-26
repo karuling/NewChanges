@@ -70,6 +70,7 @@ const course = async () => {
   margin: 10px 5px;
   color: black;
   position: relative;
+  cursor: pointer;
 }
 
 .GreenButton:hover {
@@ -79,6 +80,7 @@ const course = async () => {
 }
 
 .BlueButton2 {
+  cursor: pointer;
   background-color: #ffffff;
   border-radius: 5px;
   padding: 12px 50px;

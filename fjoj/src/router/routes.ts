@@ -21,7 +21,7 @@ import HighView from "@/views/course/HighView.vue";
 import CourseLayout from "@/layouts/CourseLayout.vue";
 import PersonalCenter from "@/views/user/PersonalCenter.vue";
 import postContentView from "@/views/post/postContentView.vue";
-
+import MybroadcastView from "@/views/broadcast/MybroadcastView.vue";
 export const routes: Array<RouteRecordRaw> = [
   {
     path: "/user",
@@ -47,6 +47,11 @@ export const routes: Array<RouteRecordRaw> = [
     path: "/post",
     name: "论坛广场",
     component: postView,
+  },
+  {
+    path: "/broadcast",
+    name: "直播",
+    component: MybroadcastView,
   },
   {
     path: "/",

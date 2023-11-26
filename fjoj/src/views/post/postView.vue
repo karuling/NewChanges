@@ -81,7 +81,7 @@ const postVo = reactive({
   notId: 0,
   orTags: [],
   pageSize: 10,
-  searchText: "",
+  searchText: "1",
   sortField: "",
   sortOrder: "",
   tags: [],
@@ -113,4 +113,7 @@ const on_search = async () => {
     message.error(res.message);
   }
 };
+onMounted(() => {
+  on_search();
+});
 </script>
